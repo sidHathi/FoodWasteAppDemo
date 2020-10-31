@@ -1,0 +1,6 @@
+framework module Pods_GurkinsIdea {
+  umbrella header "Pods-GurkinsIdea-umbrella.h"
+
+  export *
+  module * { export * }
+}
