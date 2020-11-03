@@ -12,29 +12,50 @@ import MapKit
 import CoreLocation
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class creates the main UI view (map + browse) for a non-restaurant user. It centers around an array of restaurant's in the user's area which it pulls from Firebase. The majority of the view is composed of visual respresentations of these restaurants and navigation links that the users can use to pull up a more detailed page on a particular restaurant
+*/
 struct Main: View {
+    
+    // Centerpeice of view: this state Array contains informatino regarding every restaurant loaded from Firebase
+    @State var restaurants: [Restaurant] = []
+    
+    // This view contains links that transition to a DetailView view for a particular restaurant. The following state variable records the index of the restaurant to be displayed in the DetailView.
     @State var selected = 0
     
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
     
+    // This view has two states: The first is its default state where it displays the map and browse card. The second is a full screen DetailView for a particular restaurant. This must be the case because the links in the map cannot be NavigationLinks. As a result, this state switch is used to show the appropriate detail in this Main view instead of navigating to a different DetailView for some restaurant.
     @State var map: Bool;
     
+    // OBSOLETE
     @State private var switching = true
     
+    // OBSOLETE
     @State var isNavigationBarHidden: Bool = true
     
+    // OBSOLETE
     @State var selection: Int? = nil
     
+    // State switch that controls whether profile pane is displayed over view context
     @State var showingProfile = false
     
+    // State switch that controls whether the app should log out a user and exit back to the login screen
     @State var shouldLogOut = false
     
+    // OBSOLETE
     @State var title: String = "Near You"
     
+    // OBSOLETE
     static var segued = false
     
+    // Firebase database reference
     let db = Firestore.firestore()
     
+    // Function that queries Firebase for all the restaurants within its Database (will change to restaurants in an area when app scales) and stores them in the restaurants array
     func getRestaurants()
     {
         var restaurants: [Restaurant] = []
@@ -92,8 +113,7 @@ struct Main: View {
         }
     }
     
-    @State var restaurants: [Restaurant] = []
-    
+    // Stylized SwiftUI profile button
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -105,9 +125,11 @@ struct Main: View {
         .clipShape(Circle())
     }
     
+    // SwiftUI view constructor
     var body: some View {
         VStack
         {
+            // Implementation of map state switch - this is how the view transitions between the default view and a Restaurant detail view when a click is register within the MapView
             if (map)
             {
                 NavigationView {

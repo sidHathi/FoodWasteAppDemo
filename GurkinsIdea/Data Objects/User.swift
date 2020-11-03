@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+Description:
+Type: DataClass
+Functionality: This class is used to store basic authentication info for Firebase sessions
+*/
 class User {
     var uid: String
     var email: String?

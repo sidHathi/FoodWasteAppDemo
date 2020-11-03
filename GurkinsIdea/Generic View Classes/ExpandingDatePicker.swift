@@ -8,12 +8,20 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: Creates an expanding date picker class that switches between a compact form for displaying currently selected date, and an expanding form that allows a user to change the selected date with a date picker
+*/
 struct ExpandingDatePicker: View {
+    
+    // State switch that controls whether the view is in expanded form
     @State var expanded = false
     
+    // Reference to parent's date variable
     @Binding var date: Date
     
-    
+    // Date Formatter
     var formatter: DateFormatter
     {
         let formatter = DateFormatter()
@@ -21,6 +29,7 @@ struct ExpandingDatePicker: View {
         return formatter
     }
     
+    // SwiftUI view constructor
     var body: some View {
         
         VStack

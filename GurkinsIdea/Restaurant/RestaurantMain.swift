@@ -9,16 +9,26 @@
 import SwiftUI
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class contains builds and populates the main view seen by restaurants using the app.
+*/
 struct RestaurantMain: View {
     
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
     
+    // State variable that determines whether the profile view is displayed
     @State var showingProfile = false
     
+    // State variable that determines wether logOut should be called
     @State var shouldLogOut = false
     
+    // State variable that populates with pickups from Firebase in real time
     @State var pickups: [Pickup] = []
     
+    // SwiftUI sylized profile Button
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -30,6 +40,7 @@ struct RestaurantMain: View {
         .clipShape(Circle())
     }
     
+    // Dateformatter
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -37,6 +48,7 @@ struct RestaurantMain: View {
         return formatter
     }()
     
+    // Function that updates a Pickup's canceled status on Firebase as true
     func cancelPickup(pickup: Pickup)
     {
         let cancelationMessage = "Pickup cancelled at \(self.dateFormatter.string(from: Date())) by \(self.userData.restaurantProfile!.name)."
@@ -46,14 +58,17 @@ struct RestaurantMain: View {
         ])
     }
     
+    // Function that removes all traces of a certain pickup object from both Firebase and local storage
     func removePickup(pickup: Pickup, cancel: Bool)
     {
+        // Firebase query
         self.userData.session!.db.collection("users").document(self.userData.session!.session!.uid).updateData([
             "current": FieldValue.arrayRemove([pickup.webID!])
         ]){ err in
             if let err = err {
                 print("Error updating document: \(err)")
             } else {
+                // local removal in closure
                 if (self.pickups.count > 0)
                 {
                     for index in 0...(self.pickups.count-1)
@@ -74,6 +89,7 @@ struct RestaurantMain: View {
                     }
                 }
                 if (!cancel){
+                    // Updates pickup history of restaurant on Firebase
                     self.userData.session!.db.collection("users").document(self.userData.session!.session!.uid).updateData([
                         "history": FieldValue.arrayUnion([pickup.webID!])
                     ]){ err in
@@ -92,8 +108,10 @@ struct RestaurantMain: View {
         }
     }
     
+    // Function that gets pickups from Firebase and updates local pickups array
     func updatePickups()
     {
+        // Loops through locally stored pickup IDs within user's RestaurantProfile and gets them from Firebase
         if (self.userData.session?.restaurantProfile?.cPIDs != nil)
         {
             if self.userData.session!.restaurantProfile!.cPIDs!.count > 0{
@@ -136,6 +154,7 @@ struct RestaurantMain: View {
         }
     }
     
+    // SwiftUI view constructor
     var body: some View {
         NavigationView
         {

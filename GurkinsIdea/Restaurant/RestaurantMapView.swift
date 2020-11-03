@@ -10,24 +10,35 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+/**
+Description:
+ UNFINISHED
+Type: UIView SwiftUI Representable Class
+Functionality: Creates MapView that displays locaitons of users who are on their way to pickup food. Incomplete as of 11/01/2020
+*/
 struct RestaurantMapView: UIViewRepresentable {
     
+    // Reference to pickups variable from parent view (RestaurantMain)
     @Binding var pickups: [Pickup]
      
+    // Function that assigns class Coordinator
      func makeCoordinator() -> RestaurantMapView.Coordinator {
          Coordinator(self)
      }
      
+    // location Manager
      let locationManager = CLLocationManager()
           
     // var coordinates: [CLLocationCoordinate2D]
           
+    // Functon that returns an MKMapView and assigns delegate, coordinator
      func makeUIView(context: Context) -> MKMapView {
          let mapView = MKMapView()
          mapView.delegate = context.coordinator
          return mapView
      }
 
+    // Function that adds locaitons to map
     func updateUIView(_ view: MKMapView, context: Context) {
         view.showsUserLocation = true
 
@@ -102,6 +113,7 @@ struct RestaurantMapView: UIViewRepresentable {
          
     }
      
+    // Coordinator class - used to edit annotations on pins, customize what appears for each locaiton
      class Coordinator: NSObject, MKMapViewDelegate
      {
          var parent: RestaurantMapView

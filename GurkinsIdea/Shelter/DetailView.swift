@@ -10,24 +10,38 @@ import SwiftUI
 import PartialSheet
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the UI views where non-restaurant users interact with Restaurants who have posted food. It contains the code that handles making new pickup reservations on the user's side and posting them to Firebase as well as the SwiftUI code that handles what the user sees during these interactions
+*/
 struct DetailView: View {
     
+    // Firebase database reference
     let db = Firestore.firestore()
     
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
     
+    // Restaurant being displayed and interacted with through this view
     var restaurant: Restaurant
     
+    // State variable containing updating list of the food currently available for pickup in the restaurant
     @State var availableFood: [Food] = []
     
+    // State variable containing the food currently selected for pickup by user
     @State var selectedFood: [Food] = []
     
+    // Context variable that lets the view know how it's being presented
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    // state variable that determines whether the pickup confirmation action sheet should be displayed
     @State var showingActionSheet = false
     
+    // State variable that stores the time at which the user wants to make their pickup
     @State var pickUpTime = Date()
 
+    // Stylized SwiftUI back button
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
         }) {
@@ -40,12 +54,14 @@ struct DetailView: View {
         }
     }
     
+    // Date Formatter
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter
     }
     
+    // Function that modifies a restaurant's food objects on firebase so that they reflect the pickup scheduled by the user
     func modifyFood()
     {
         let foodRef = db.collection("food")
@@ -65,7 +81,7 @@ struct DetailView: View {
         }
     }
     
-    
+    // Function that creates the pickup after the user has confirmed it and adds the requisite information to the user's firebase document.
     func uploadFood()
     {
         var foodIDs: [String] = []
@@ -132,7 +148,7 @@ struct DetailView: View {
         }
     }
     
-    
+    // Function that queries firebase for the food offered by the Restaurant
     func getFood()
     {
         self.availableFood.append(contentsOf: self.restaurant.availableFood)
@@ -163,11 +179,13 @@ struct DetailView: View {
         }
     }
     
+    // Function that stylizes tableviews
     func setUpClasses()
     {
         UITableView.appearance().backgroundColor = UIColor.clear
     }
     
+    // SwiftUI view constructor
     var body: some View {
 
             ScrollView {
@@ -269,6 +287,8 @@ struct DetailView: View {
                         }
                         
                         Button(action:{
+                            
+                            // Code that runs when the user clicks the first "Request pickup button": it builds the users order and adjusts the state variables for selected  and available food locally. It then displays the action shet where the user confirms their order
                             
                             var foodOrder: [Food] = []
                             
@@ -373,6 +393,8 @@ struct DetailView: View {
                         
                         
                         Button(action: {
+                            // Code that runs when the user confirms their pickup: The local food objects are changed as specified by the user. Then the pickup object for the reservation is generated based on the food selected and the time scheduled. Finally, this local information is uploaded to Firebase where the requisite documents are created and modified.
+                            
                             for index in (0...(self.availableFood.count-1))
                             {
                                 if self.availableFood[index].selectedQuantity > 0

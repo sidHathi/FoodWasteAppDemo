@@ -8,16 +8,28 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI view class within which  restaurant user's can edit their profile info.
+*/
 struct RestaurantEditor: View {
+    
+    // User's current data
     @Binding var user: RestaurantProfile
     
+    // State switch that controls whether image picker is visible
     @State private var showingImagePicker = false
+    
+    // State variable that store profile image (set to default for demo
     @State private var inputImage = UIImage(named: "yosAvatar")
     
+    // function that sets a user's profile image to the image they've selected
     func loadImage() {
         user.image = Image(uiImage: self.inputImage!)
     }
     
+    // SwiftUI constructor view
     var body: some View {
         
         VStack (alignment: .leading) {

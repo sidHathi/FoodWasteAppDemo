@@ -9,6 +9,11 @@
 import SwiftUI
 import UIKit
 
+/**
+Description: [DEPRECATED]
+Type: SwiftUI View Class
+Functionality: This class belongs to an earlier verson of the app and has been replaced by MainBrowseView
+*/
 struct BrowseView: View {
     var restaurants: [Restaurant]
     var body: some View {

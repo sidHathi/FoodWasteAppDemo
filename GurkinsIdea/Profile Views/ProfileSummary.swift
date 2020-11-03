@@ -8,14 +8,26 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI view that displays a  non-restaurant user's profile information
+*/
 struct ProfileSummary: View {
     
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var session: FirebaseSession
+    
+    // State switch that controls whether this view is displayed by parent
     @Binding var showingSheet: Bool
+    
+    // State switch that controls whether the app should log out a user and exit back to the login screen
     @Binding var loggedOut: Bool
     
+    // Current user's profile info
     var user: Profile
     
+    // SwiftUI view constructor
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){

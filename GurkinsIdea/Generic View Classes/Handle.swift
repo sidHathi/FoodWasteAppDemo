@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+Description: (CREDIT: https://gist.github.com/mshafer/7e05d0a120810a9eb49d3589ce1f6f40)
+Type: SwiftUI Special View class
+Functionality: Creates the handle for the swiftUI slide over card
+*/
 struct Handle : View {
     private let handleThickness = CGFloat(5.0)
     var body: some View {

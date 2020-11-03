@@ -8,11 +8,20 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class builds the card that a non-restaurant user uses to schedule food within a Restaurant's detail view
+*/
 struct FoodModifier: View {
+    
+    // The food object in question
     var food: Food
     
+    // State variable that stores how much of the food is currently marked as selected by user
     @State var selected: Int = 0
     
+    // Date Formatter
     var formatter: DateFormatter
     {
         let formatter = DateFormatter()
@@ -20,6 +29,7 @@ struct FoodModifier: View {
         return formatter
     }
     
+    // SwiftUI view constructor
     var body: some View {
         
         VStack(alignment: .leading)

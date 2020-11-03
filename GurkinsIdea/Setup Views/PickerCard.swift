@@ -8,11 +8,20 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI card that users select to choose which version of the app they want to use - the one for Restaurants or the one for non-Restaurants
+*/
 struct PickerCard: View {
+    
+    // Boolar variable that stores wheether the card should display itself as a the resturant card or the non-restaurant card
     var restaurant: Bool
     
+    // State switch that tells the parent view that the card has been selected
     @Binding var selected: Bool
     
+    // SwiftUI view constructor
     var body: some View {
         GeometryReader{
             geometry in

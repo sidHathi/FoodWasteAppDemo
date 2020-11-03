@@ -9,11 +9,17 @@
 import Foundation
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: Builds the animating loading indicator used in various parts of the app
+*/
 struct ActivityIndicator: View {
 
+    // State switch that stores whether the indicator is should be animating
   @State private var isAnimating: Bool = false
-    
 
+    // SwiftUI view constructor
   var body: some View {
 
     GeometryReader { (geometry: GeometryProxy) in

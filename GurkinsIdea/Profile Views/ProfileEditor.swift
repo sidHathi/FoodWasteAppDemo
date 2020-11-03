@@ -8,12 +8,23 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI view class within which a non-restaurant user edits their profile info.
+*/
 struct ProfileEditor: View {
+    
+    // Current user's profile information
     @Binding var user: Profile
     
+    // Boolean state switch that controls whether the popup within which a user can choose their profile image is shown
     @State private var showingImagePicker = false
+    
+    // User's image selection (default used for demo)
     @State private var inputImage = UIImage(named: "yosAvatar")
     
+    // SwiftUI view constructor
     var body: some View {
         
         VStack (alignment: .leading) {
@@ -82,6 +93,7 @@ struct ProfileEditor: View {
         }
     }
     
+    // Function that sets the user's image to the one they selected
     func loadImage() {
         user.image = Image(uiImage: self.inputImage!)
     }

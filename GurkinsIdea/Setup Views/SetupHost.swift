@@ -10,19 +10,35 @@ import SwiftUI
 import CoreLocation
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: Overarching SwiftUI view class within which a user sets up their profile for first-time use.
+*/
 struct SetupHost: View {
+    
+    // Overarching Firebase session var for app
     @EnvironmentObject var session: FirebaseSession
     
+    // State switch that controls whether the user wants to be restaurant
     @State var restaurant: Bool = false
+    // State switch that controls whether the user wants to be non-restaurant
     @State var shelter: Bool = false
+    // State variable that controls which part of the setup process should be displayed
     @State var page: Int = 0
+    // State variable that dictates whether an error message is shown
     @State var showingErrorMessage = false
+    // State variable that contains info on whether the address is formatted correctly
     @State var addressFormatted: Bool? = nil
     
+    // State switch that controls whether image picker view is displayed
     @State private var showingImagePicker = false
+    // State variable that stores the image the user has chosen (set as default for demo)
     @State private var inputImage = UIImage(named: "yosAvatar")
+    // State var that stores Firebase download path of user's profile image
     @State var imgDownloadURL: URL = URL(fileURLWithPath: "")
     
+    // State variables that contain the information within the text-inputs in the setup subviews - the information that the user is entering for their profile - and the accompanying booleans for each of the entries that contain information on whether the info entered is invalid and an error message needs to be shown
     @State var orgName: String = ""
     @State var redOrgName = false
     @State var address: String = ""
@@ -41,15 +57,20 @@ struct SetupHost: View {
     @State var redDescription = false
     @State var phone: String = ""
     @State var redPhone = false
+    
+    // State variable that will contain user's location from address
     @State var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    // State switches that control which error message is displayed
     @State var showingEmptyError = false
     @State var showingFormatError = false
     @State var showingAddressError = false
     
+    // Firebase storage references
     let storage = Storage.storage()
     let storageRef = Storage.storage().reference()
     
-    
+    // Function that uploads a user's profile information to firebase
     func uploadProfile()
     {
         let image = self.inputImage!
@@ -144,6 +165,7 @@ struct SetupHost: View {
         }
     }
     
+    // SwiftUI stylized Button that takes user back in the setup process
     var logOutButton: some View
     {
         Button(action:{
@@ -163,11 +185,13 @@ struct SetupHost: View {
         }
     }
     
+    // SwiftUI profile building object
     var profileBuilder: ProfileBuilder
     {
         ProfileBuilder(page: self.$page, orgName: self.$orgName, red1: self.$redOrgName, address: self.$address, red2: self.$redAddress, city: self.$city, red3: self.$redCity, state: self.$state, red4: self.$redState, zip: self.$zip, red5: self.$redZip, capacity: self.$capacity, red6: self.$redCapacity, showingEmptyError: self.$showingEmptyError, showingFormatError: self.$showingFormatError)
     }
     
+    // Function that tests the user's inputs during a certain part of the setup. If the inputs are valid, it advances the user in the setup process. If not, it displays appropriate error messages
     func tryContinue()
     {
         if (shelter){
@@ -297,6 +321,7 @@ struct SetupHost: View {
         }
     }
     
+    // SwiftUI View constructor
     var body: some View {
         
         GeometryReader{

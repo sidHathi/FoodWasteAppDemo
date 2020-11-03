@@ -8,15 +8,25 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This is the primary SwiftUI view class for the entire app. It coordinates the user's current firebase session status
+ with the app's various SwiftUI view classes to ensure that the user is seeing the right information and all the SwiftUI
+ classes have the information they need to display the right stuff to the user.
+*/
 struct ControllerView: View {
     
+    // Overarching firebase session instance for connection to Firebase
     @ObservedObject var session = FirebaseSession()
     
+    // Function that starts firebase session
     func getUser () {
         session.listen()
     }
     
     var body: some View {
+        // Real-time updating group of SwiftUI views that uses Firebase session info to determine what views the user should be looking at.
         Group {
             if session.session != nil && session.isLoggedIn == true {
                 if (session.userDataExists != nil){

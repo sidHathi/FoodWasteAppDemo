@@ -8,22 +8,35 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class creates the UI card used within Restaurant Secondary view to add new food to menu
+*/
 struct FoodCard: View {
     
+    // Reference to the string newFoodName within RestaurantSecondary
     @Binding var foodName: String
     
+    // Reference to the integer quantity within RestaurantSecondary
     @Binding var quantity: Int
     
+    // Reference to the actual food object within RestaurantSecondary
     @Binding var food: Food
     
+    // String displayed in card's label
     @State var qString: String = "0"
     
+    // State variable that controls whether card is expanded
     @State var expanded: Bool = false
     
+    // Stat variable that contains current time
     @State var currentDate = Date()
     
+    // Reference to parent
     var parent: RestaurantSecondary
     
+    // SwiftUI view constructor
     var body: some View {
         VStack(alignment: .leading)
         {

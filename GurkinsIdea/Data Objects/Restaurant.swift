@@ -13,8 +13,18 @@ import Firebase
 import SwiftUI
 import UIKit
 
+/**
+Description:
+Type: DataClass
+Functionality: This Class provides a location where basic information regarding
+a Restaurant can be stored and access by a user who is not a Restaurant.
+Rather than using a RestaurantProfile Object, these user's store information regarding
+restaurants in their area within a dataclass of this nature. This separation exists mainly for
+privacy reasons.
+*/
 class Restaurant
 {
+    // Instance variables
     var address: String
     var id = UUID()
     var name: String
@@ -33,10 +43,13 @@ class Restaurant
     var cPIDs: [String]?
     var phIDs: [String]?
     
+    // Defaults used to artifically populate demos
    static let `bellevue` = Restaurant(address: "Bellevue", name: "Pagliacci Pizza", availability: true, favorite: true, description: "Pagliacci Pizza, serving Seattle's best pizza since 1979. Offering pizza by the slice and pizza delivery service to homes and businesses.", coordinates: CLLocationCoordinate2D(latitude: 47.7, longitude: -122.3), availableFood: [], pickUps: [])
     
    static let `withFood` = Restaurant(address: "Bellevue", name: "Pagliacci Pizza", availability: true, favorite: true, description: "Pagliacci Pizza, serving Seattle's best pizza since 1979. Offering pizza by the slice and pizza delivery service to homes and businesses.", coordinates: CLLocationCoordinate2D(latitude: 47.7, longitude: -122.3), availableFood: [Food(), Food()], pickUps: [])
     
+    // Main constructor: takes in JSON file converted into datamap from firebase and creates Restaurant object
+    // whose instance variables are populated based on information contained within the datamap.
     init(data: [String: Any], uid: String)
     {
         self.name = data["name"]! as! String
@@ -85,6 +98,7 @@ class Restaurant
         self.uid = uid
     }
     
+    // Constructor used to populate Restaurants manually - used mainly for demo purposes
     init(address: String, name: String, availability: Bool, favorite: Bool, description: String, coordinates: CLLocationCoordinate2D, availableFood: [Food], pickUps: [Pickup])
     {
         self.address = address
@@ -97,6 +111,7 @@ class Restaurant
         self.availableFood = availableFood
     }
 
+    // Constructor used to setup Restaurant object based on input from setup view
     init(address: String, name: String, availability: Bool, favorite: Bool, description: String, availableFood: [Food], pickUps: [Pickup])
     {
         self.address = address
@@ -123,6 +138,7 @@ class Restaurant
         self.pickUps = pickUps
     }
     
+    // Default constructor used to populate demos
     init()
     {
         self.address = "Seattle"
@@ -135,11 +151,13 @@ class Restaurant
         self.pickUps = []
     }
     
+    // function used to append pickups
     func addOrder(order: Pickup)
     {
         self.pickUps.append(order)
     }
     
+    // function used to compare restaurants
     static func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
         if (lhs.address == rhs.address && lhs.name == rhs.name)
         {

@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+Description: [DEPRECATED]
+Type: SwiftUI View Class
+Functionality: This class belongs to an earlier verson of the app and has been replaced by FeaturedCard
+*/
 struct BrowseCard: View {
     var restaurant: Restaurant
     

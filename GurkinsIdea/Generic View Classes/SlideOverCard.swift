@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+/**
+Description: (CREDIT: https://gist.github.com/mshafer/7e05d0a120810a9eb49d3589ce1f6f40)
+Type: SwiftUI Special View class
+Functionality: Creates the SwiftUI slide over modally presented partial sheet card
+*/
 struct SlideOverCard<Content: View> : View {
     @GestureState private var dragState = DragState.inactive
     @State var position = CardPosition.middle

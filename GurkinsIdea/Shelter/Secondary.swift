@@ -9,18 +9,32 @@
 import SwiftUI
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class displays information about current and past pickups to a non-restaurant user
+*/
 struct Secondary: View {
     
+    // State switch that controls whether profile pane should be displayed
     @State var showingProfile = false
+    
+    // State switch that controls whether app should logout user and exit view
     @State var shouldLogOut = false
+    
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
     
+    // Centerpeice of view: contains the array of all of the user's currently scheduled pickups
     @State var currentPickups: [Pickup] = []
 
+    // Firebase Database reference
     let db = Firestore.firestore()
     
+    // Array containing all of user's past pickups (populated with fake pickups for demo
     var history: [Pickup] = [Pickup(complete: false), Pickup(complete: false), Pickup(complete: false), Pickup(complete: false)]
     
+    // SwiftUI stylized profile button
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -30,6 +44,7 @@ struct Secondary: View {
         }
     }
     
+    // Date Formatter
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -37,6 +52,7 @@ struct Secondary: View {
         return formatter
     }()
     
+    // Function that adds cancelation message to a Firebase pickup and sets its canceled status to true
     func cancelPickup(pickup: Pickup)
     {
         let cancelationMessage = "Pickup cancelled at \(self.dateFormatter.string(from: Date())) by \(self.userData.profile!.username)."
@@ -46,6 +62,7 @@ struct Secondary: View {
         ])
     }
     
+    // Function that Removes all references of a pickup from the scheduled pickups array both locally and in the user's Firebase document and then adds those pickups to the user's pickups history both locally and in Firebase
     func removePickup(pickup: Pickup, cancelation: Bool)
     {
         self.userData.session!.db.collection("users").document(self.userData.session!.session!.uid).updateData([
@@ -79,6 +96,7 @@ struct Secondary: View {
         }
     }
     
+    // Function that checks if a pickup from Firebase is new and valid. If the pickup is valid, it adds the new pickup to the pickups array. If it is a duplicate, it does nothing, if it is expired, it removes the pickup
     func managePickup(pickup: Pickup)
     {
         var duplicate = false
@@ -110,6 +128,7 @@ struct Secondary: View {
         }
     }
     
+    // Function that queries Firebase for the user's pickups and delegates managePickups() to deal with them.
     func getPickups()
     {
         let userID = userData.session?.session?.uid
@@ -155,6 +174,7 @@ struct Secondary: View {
         }
     }
     
+    // SwiftUI view constructor
     var body: some View {
         NavigationView
         {

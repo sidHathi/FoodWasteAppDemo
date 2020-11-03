@@ -8,13 +8,26 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This Class serves as a replacement for the UITabBarView from UIKit built in SwiftUI.
+ In the context of the program, it also passes the requisite UserData environment object to the
+ views within it.
+*/
 struct TabBarView: View {
+    
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
     
+    // State: controls selected view
     @State var selectedView = 0
     
+    // Determines which version of the app to display: The one oriented around restaurants, or
+    // the one oriented around non-restaurants.
     var restaurant: Bool
     
+    // SwiftUI View Constructor code
     var body: some View {
         TabView(selection: $userData.tab) {
             if (restaurant){

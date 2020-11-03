@@ -8,8 +8,14 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class contains builds and populates the view used to sign up a new user as a Restaurant
+*/
 struct RestaurantProfileBuilder: View {
     
+    // Variables set within this view: connect back to overaraching setup class
     @Binding var address: String
     @Binding var redAddress: Bool
     @Binding var city: String
@@ -19,6 +25,7 @@ struct RestaurantProfileBuilder: View {
     @Binding var zip: String
     @Binding var redZip: Bool
     @Binding var name: String
+    // Error Message variables: also connect back to overarching setup class.
     @Binding var redRName: Bool
     @Binding var description: String
     @Binding var redDescription: Bool
@@ -30,8 +37,10 @@ struct RestaurantProfileBuilder: View {
 
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
+    // SwwiftUI View Constructor
     var body: some View {
         List{
+            // if statements decide what error messages to display
             if (showingEmptyError)
             {
                 Text("Complete required text fields")

@@ -8,16 +8,24 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the card representation of a Restaurant as they are displayed in the browse view's overarching list of restaurants
+*/
 struct RestaurantCard: View {
     
+    // Restaurant being displayed in card
     var restaurant: Restaurant
     
+    // Function to get relevant part of restaurant's address for display
     func getRelevantAddress(address: String) -> String
     {
         let parsedAddress = address.components(separatedBy: ", ")
         return parsedAddress[0]
     }
     
+    // SwiftUI view constructor
     var body: some View {
         
         HStack

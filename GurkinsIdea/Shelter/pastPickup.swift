@@ -9,11 +9,20 @@
 import SwiftUI
 import CoreLocation
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the UI mini cards used to display past pickups
+*/
 struct pastPickup: View {
+    
+    // Pickup being displayed
     var pickup: Pickup
     
+    // State variable that stores the location of the pickup's restaurant
     @State var restaurantLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
+    // Date Formatter
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -21,6 +30,7 @@ struct pastPickup: View {
         return formatter
     }()
     
+    // Function that updates the state variable restaurantLocatoin with the actual location of the restaurant using a geocoder
     func getRestaurantLocation()
     {
         if (pickup.restaurantLocation != nil){
@@ -45,6 +55,7 @@ struct pastPickup: View {
         }
     }
     
+    // SwiftUI view Constructor
     var body: some View {
         VStack (alignment: .leading){
             ProfileMap(coordinate: self.restaurantLocation, pin: true)

@@ -8,16 +8,24 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class builds a stylized SwiftUI card that shows off a featured restaurant in the Main Browse view
+*/
 struct FeaturedCard: View {
     
+    // Restaurant being displayed in the card
     var restaurant: Restaurant
     
+    // function that gets the relevant part of resaurant's address
     func getRelevantAddress(address: String) -> String
     {
         let parsedAddress = address.components(separatedBy: ", ")
         return parsedAddress[0]
     }
     
+    // SwiftUI view constructor
     var body: some View {
         VStack (alignment: .leading)
         {

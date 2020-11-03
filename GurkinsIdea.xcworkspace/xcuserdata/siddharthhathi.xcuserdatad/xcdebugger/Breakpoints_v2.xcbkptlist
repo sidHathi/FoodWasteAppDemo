@@ -14,8 +14,8 @@
             filePath = "GurkinsIdea/FirebaseSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "listen()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "GurkinsIdea/FirebaseSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "listen()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "GurkinsIdea/FirebaseSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "listen()"
             landmarkType = "7">
             <Locations>
@@ -94,8 +94,8 @@
             filePath = "GurkinsIdea/FirebaseSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "listen()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "GurkinsIdea/FirebaseSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "listen()"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,8 +558,8 @@
             filePath = "GurkinsIdea/Setup Views/SetupHost.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "uploadProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -574,8 +574,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantSecondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "removeFood(food:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -590,8 +590,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantSecondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "removeFood(food:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,8 +606,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantSecondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "removeFood(food:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,8 +622,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantSecondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "removeFood(food:)"
             landmarkType = "7">
             <Locations>
@@ -670,8 +670,8 @@
             filePath = "GurkinsIdea/Restaurant/FoodItem.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -686,8 +686,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantSecondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "getAvailableFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +702,8 @@
             filePath = "GurkinsIdea/Shelter/Main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "getRestaurants()"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +718,8 @@
             filePath = "GurkinsIdea/Shelter/Main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "getRestaurants()"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,8 +734,8 @@
             filePath = "GurkinsIdea/Shelter/Main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "getRestaurants()"
             landmarkType = "7">
          </BreakpointContent>
@@ -750,8 +750,8 @@
             filePath = "GurkinsIdea/Shelter/Main.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "getRestaurants()"
             landmarkType = "7">
          </BreakpointContent>
@@ -766,8 +766,8 @@
             filePath = "GurkinsIdea/Shelter/DetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "uploadFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -782,8 +782,8 @@
             filePath = "GurkinsIdea/Restaurant/RestaurantMain.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "updatePickups()"
             landmarkType = "7">
          </BreakpointContent>
@@ -798,8 +798,8 @@
             filePath = "GurkinsIdea/Data Objects/Pickup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "init(data:id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -814,8 +814,8 @@
             filePath = "GurkinsIdea/Data Objects/Pickup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "init(data:id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -830,8 +830,8 @@
             filePath = "GurkinsIdea/Shelter/DetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "uploadFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -846,8 +846,8 @@
             filePath = "GurkinsIdea/Shelter/DetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "uploadFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -862,8 +862,8 @@
             filePath = "GurkinsIdea/Shelter/DetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "uploadFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +878,8 @@
             filePath = "GurkinsIdea/Shelter/DetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "uploadFood()"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +894,8 @@
             filePath = "GurkinsIdea/Data Objects/Pickup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "init(data:id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,8 +910,8 @@
             filePath = "GurkinsIdea/Data Objects/Pickup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "init(data:id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -926,8 +926,8 @@
             filePath = "GurkinsIdea/Data Objects/Pickup.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "init(data:id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +942,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "managePickup(pickup:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,8 +958,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "getPickups()"
             landmarkType = "7">
          </BreakpointContent>
@@ -974,8 +974,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "getPickups()"
             landmarkType = "7">
          </BreakpointContent>
@@ -990,8 +990,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "managePickup(pickup:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,8 +1006,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "managePickup(pickup:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +1022,8 @@
             filePath = "GurkinsIdea/Shelter/Secondary.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "managePickup(pickup:)"
             landmarkType = "7">
          </BreakpointContent>

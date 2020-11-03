@@ -10,8 +10,16 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+/**
+Description:
+Type: DataClass
+Functionality: This class is where the vast body of information regarding non-restaurant users
+ is stored. This data includes. Objects of this class are stored within the app and used by
+ all the view controllers to determine what the user should see.
+*/
 class Profile
 {
+    // Instance variables
     var id = UUID()
     var username: String
     var prefersNotifications: Bool
@@ -25,8 +33,11 @@ class Profile
     var location: CLLocationCoordinate2D?
     var webID: String?
     
+    // Default profile object
     static let `default` = Profile()
     
+    // Function that generates a Firebase-formatted dataMap based on the information stored within
+    // the object's instance variables. Used to store new user profiles on Firebase.
     func returnDataMap() -> [String: Any]
     {
         return ["name": self.username,
@@ -35,6 +46,8 @@ class Profile
                 ]
     }
     
+    // Main constructor: takes in JSON file converted into datamap from firebase and creates Profile object
+    // whose instance variables are populated based on information contained within the datamap.
     init(data: [String: Any], webID: String, image: Image)
     {
         self.webID = webID
@@ -48,6 +61,7 @@ class Profile
         self.image = image
     }
     
+    // Constructor used to populate Profile from local data
     init(username: String, prefersNotifications: Bool, favorites: [Restaurant], scheduled: [Pickup], history: [Pickup], address: String, people: Double, image: UIImage)
     {
         self.username = username
@@ -60,6 +74,7 @@ class Profile
         self.image = Image(uiImage: image)
     }
     
+    // Default constructor
     init()
     {
         self.username = "chosenYos"
@@ -72,11 +87,14 @@ class Profile
         self.image = Image(self.imageName)
     }
     
+    // Function that adds new pickups to array of scheduled pickups
     func schedulePickup(pickup: Pickup)
     {
         self.scheduled.append(pickup)
     }
     
+    // Function that stores the user's location based on the
+    // actual recorded location of the user
     func setLocation(location: CLLocationCoordinate2D)
     {
         self.location = location

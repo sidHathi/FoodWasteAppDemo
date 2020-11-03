@@ -8,13 +8,23 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the the page within which users can find any restaurant pulled from Firebase
+*/
 struct CompleteList: View {
+    
+    // Array of restaurants pulled from firebase
     var restaurants: [Restaurant]
     
+    // State variables that control which method should be used to sort the restaurants
     @State var none: Bool = true
+    // Favorites functionality has not been implemented: placeholder for demo
     @State var favorites: Bool = false
     @State var proximity: Bool = false
     
+    // SwiftUI view constructor
     var body: some View {
         ScrollView{
             VStack (alignment: .leading){

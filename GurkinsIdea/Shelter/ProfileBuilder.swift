@@ -10,8 +10,14 @@ import SwiftUI
 import Firebase
 import UIKit
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class contains builds and populates the view used to sign up a new user as a non-restaurant
+*/
 struct ProfileBuilder: View {
     
+    // Variables set within this view that connect back to setup Controller accompanied by booleans that control whether the input views used to set them appear highlighted in red because of an invalid entry
     @Binding var page: Int
     @Binding var orgName: String
     @Binding var red1: Bool
@@ -25,12 +31,13 @@ struct ProfileBuilder: View {
     @Binding var red5: Bool
     @Binding var capacity: String
     @Binding var red6: Bool
+    // Booleans that control what error message are shown
     @Binding var showingEmptyError: Bool
     @Binding var showingFormatError: Bool
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
-    
+    // SwiftUI view constructor
     var body: some View {
         List{
             if (showingEmptyError)
@@ -245,6 +252,7 @@ struct ProfileBuilder: View {
                
     }
     
+    // Function that checks whether the entries are valid. If they are, it advances the profile builder to the next page. Otherwise it displays the requisite erroe messages
     func tryContinue()
     {
         if (self.orgName.isEmpty)

@@ -8,12 +8,20 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the UI card that the user uses to manage a pickup they've currently scheduled
+*/
 struct pickUpCard: View {
     
+    // Reerence to parent view in which card appears
     var parent : Secondary
     
+    // Pickup being displayed by the card
     var pickup: Pickup
     
+    // Date Formatter
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -21,6 +29,7 @@ struct pickUpCard: View {
         return formatter
     }()
     
+    // SwiftUI view constructor
     var body: some View {
 
         VStack(alignment: .leading) {
@@ -72,6 +81,7 @@ struct pickUpCard: View {
                     Spacer()
                     VStack(alignment: .center){
                         Button(action:{
+                            // Reference to parent function
                             self.parent.removePickup(pickup: self.pickup, cancelation: false)
                         })
                         {
@@ -88,6 +98,7 @@ struct pickUpCard: View {
                                 .padding(.top, 10)
                         }
                         Button(action:{
+                            // Reference to parent function
                             self.parent.removePickup(pickup: self.pickup, cancelation: true)
                         })
                         {

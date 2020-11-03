@@ -10,26 +10,37 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+/**
+Description:
+Type: UIView SwiftUI Representable Class
+Functionality: This class constructs the UIMap that displays the location of nearby restaurants ot the user as a SwiftUI object. Includes constructor code for interactable map items that display text and buttons when expanded
+*/
 struct MapView: UIViewRepresentable {
     
+    // Sets coordinator class
     func makeCoordinator() -> MapView.Coordinator {
         Coordinator(self)
     }
     
+    // Location manager
     let locationManager = CLLocationManager()
     
+    // Array of restaurants that are displayed in the map
     var restaurants: [Restaurant]
     
    // var coordinates: [CLLocationCoordinate2D]
     
+    // Reference to parent view (Main)
     var parent: Main
     
+    // Function that builds an MKMapView with the appropriate coordinator and delegate
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
         return mapView
     }
-
+    
+    // Function that adds locations that need to be displayed on the map to the map
    func updateUIView(_ view: MKMapView, context: Context) {
        view.showsUserLocation = true
 
@@ -69,8 +80,10 @@ struct MapView: UIViewRepresentable {
                         
                         annotation.coordinate = self.restaurants[i].coordinates
                         
+                        // Sets annotation title
                         annotation.title = self.restaurants[i].name
                         
+                        // sets annotation subtext
                         annotation.subtitle = self.restaurants[i].address
                         
                         view.addAnnotation(annotation)
@@ -84,6 +97,7 @@ struct MapView: UIViewRepresentable {
         
    }
     
+    // Coordinator class that sets the items displayed on the map to show the right annotations and buttons.
     class Coordinator: NSObject, MKMapViewDelegate
     {
         var parent: MapView
@@ -117,6 +131,7 @@ struct MapView: UIViewRepresentable {
             //mapsButton.setBackgroundImage(UIImage(named: "Maps-icon"), for: UIControl.State())
             mapsButton.setBackgroundImage(UIImage(systemName: "arrow.right.circle"), for: UIControl.State())
             
+            // identifies the restaurants that each point on the map refers to and tags them appropriately
             if (parent.restaurants.count > 0){
                 for i in 0...(parent.restaurants.count-1)
                 {
@@ -127,6 +142,7 @@ struct MapView: UIViewRepresentable {
                 }
             }
             
+            // Adds the button to the annotations
             annotationView?.rightCalloutAccessoryView = mapsButton
 
             return annotationView
@@ -170,6 +186,7 @@ struct MapView: UIViewRepresentable {
         
     }
     
+    // OBSOLETE
     class SampleAnnotation: NSObject, MKAnnotation
     {
         var coordinate: CLLocationCoordinate2D
@@ -184,6 +201,7 @@ struct MapView: UIViewRepresentable {
         
     }
     
+    // class for Annotations that sets up selection/deselction
     class AnnotationView: MKAnnotationView
     {
         override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

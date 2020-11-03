@@ -9,13 +9,21 @@
 import SwiftUI
 import CoreLocation
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class creates a SwiftUI view representation of an upcoming pickup that's displayed to a restaurant in the Restaurant's main view.
+*/
 struct UpcomingList: View {
     
+    // Reference to RestaurantMain view within this view appears
     var parent: RestaurantMain
+    // Pickup being represented/displayed in this view
     var pickup: Pickup
-    
+    // Boolean State var that controls whether the card is expanded or not
     @State var tapped: Bool = false
     
+    // Date Formatter
     var formatter: DateFormatter
     {
         let formatter = DateFormatter()
@@ -23,22 +31,26 @@ struct UpcomingList: View {
         return formatter
     }
     
+    // Function that converts the full address string into a shortened one
     func getRelevantAddress(address: String) -> String
     {
         let parsedAddress = address.components(separatedBy: ", ")
         return parsedAddress[0]
     }
     
+    // Function that computes minutes left until pickup time
     func getMinutesUntilPickup() -> Int
     {
         return pickup.time.minutes(from: Date())
     }
     
+    // Function that computes hours left until pickup time
     func getHoursUntilPickup() -> Int
     {
         return pickup.time.hours(from: Date())
     }
     
+    // Function that returns the the string representation of time left until pickup
     func getPickupIntervalString() -> String
     {
         if (getMinutesUntilPickup() > 90)
@@ -64,11 +76,13 @@ struct UpcomingList: View {
         }
     }
     
+    // Function that sets background color of tableViews
     func setUI()
     {
         UITableView.appearance().backgroundColor = UIColor.clear
     }
     
+    // SwiftUI view Constructor
     var body: some View {
         VStack
         {
@@ -210,10 +224,17 @@ struct UpcomingList: View {
     }
 }
 
+/**
+ Description:
+ Type: SwiftUI View Class
+ Functionality: This class creates the neumorphic profile image used in the card
+ */
 struct MiniCircle: View
 {
+    // Profile image
     var image: Image
     
+    // SwiftUI view constructor
     var body: some View
     {
         image
@@ -233,6 +254,7 @@ struct UpcomingList_Previews: PreviewProvider {
     }
 }
 
+// Extension to Date that allows for easy computations of differences in Dates.
 extension Date {
     /// Returns the amount of years from another date
     func years(from date: Date) -> Int {

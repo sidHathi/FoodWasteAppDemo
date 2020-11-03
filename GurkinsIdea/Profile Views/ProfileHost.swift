@@ -8,15 +8,32 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI class within which the a user can see and edit their profile
+*/
 struct ProfileHost: View {
     
+    // Public state switch that stores edit state
     @Environment(\.editMode) var mode
+    
+    // State variable that stores data for non-restaurant user as they enter it
     @State var draftShelter = Profile()
+    
+    // State variable that stores data for restaurant user as they enter it
     @State var draftRestaurant = RestaurantProfile()
+    
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
+    
+    // State switch that controls whether this view is visible over parent
     @Binding var showingSheet: Bool
+    
+    // State switch that controls whether the app should log out and exit to login screen
     @Binding var loggedOut: Bool
     
+    // Function that take updates the user's profile info in Firebase based on the edits they've made
     func updateUserProfile()
     {
         if (self.userData.profile != nil)
@@ -46,6 +63,7 @@ struct ProfileHost: View {
         }
     }
     
+    // SwiftUI view constructor class
     var body: some View {
         //ProfileSummary(user: User())
             

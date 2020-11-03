@@ -8,10 +8,17 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class displays the restaurants near the user in a visually compelling way that llows them to find the restaurants they're looking for quickly
+*/
 struct MainBrowseView: View {
     
+    // All the restaurants pulled from Firebase
     var restaurants: [Restaurant]
     
+    // SwiftUI view constructor
     var body: some View {
         
         VStack (alignment: .leading)

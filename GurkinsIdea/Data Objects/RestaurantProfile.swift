@@ -10,8 +10,16 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+/**
+Description:
+Type: DataClass
+Functionality: This class is where the vast body of information regarding restaurant users
+ is stored. This data includes. Objects of this class are stored within the app and used by
+ all the view controllers to determine what the user should see.
+*/
 class RestaurantProfile
 {
+    // Instance vars
     var name: String
     var address: String
     var description: String
@@ -28,7 +36,8 @@ class RestaurantProfile
     var phIDs: [String]?
     var image = Image("restaurantGeneric")
     
-    
+    // Function that generates a Firebase-formatted dataMap based on the information stored within
+    // the object's instance variables. Used to store new user profiles on Firebase.
     func returnDataMap() -> [String: Any]
     {
         return ["name": self.name,
@@ -42,6 +51,8 @@ class RestaurantProfile
                 ]
     }
     
+    // Main constructor: takes in JSON file converted into datamap from firebase and creates RestaurantProfile object
+    // whose instance variables are populated based on information contained within the datamap.
     init(data: [String: Any])
     {
         //let restaurantProfile = RestaurantProfile(name: document.data()!["name"] as! String, address: document.data()!["address"] as! String, description: document.data()!["description"] as! String, phone: document.data()!["phone"] as! String, location: CLLocationCoordinate2D(latitude: document.data()!["latitude"] as! Double, longitude: document.data()!["longitude"] as! Double), availability: false, aFood: [], rFood: [], cPickups: [], history: [])
@@ -77,6 +88,7 @@ class RestaurantProfile
         self.pickupHistory = []
     }
     
+    // Constructor that creates RestaurantProfile object from locally stored info
     init(name: String, address: String, description: String, phone: String, location: CLLocationCoordinate2D, availability: Bool, aFood: [Food], rFood: [Food], cPickups: [Pickup], history: [Pickup])
     {
         self.name = name
@@ -91,6 +103,7 @@ class RestaurantProfile
         self.pickupHistory = history
     }
     
+    // Default constructor
     init()
     {
         self.name = ""

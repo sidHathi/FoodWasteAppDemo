@@ -12,27 +12,35 @@ import FirebaseAuth
 import FirebaseFirestore
 import CoreLocation
 
+/**
+Description:
+Type: DataClass
+Functionality: This class stores and executes all information related to the user's current Firebase session.
+ This includes keeping track of the user's information, login state and database references, and handling
+ all authentication and setup functionality required for the app to interface with Firebase.
+*/
 class FirebaseSession: ObservableObject {
     
-    //MARK: Properties
+    // The following variables store publicly accessible information about the User's authentication state and profile data required to run the app.
     @Published var session: User?
     @Published var isLoggedIn: Bool?
     @Published var profile: Profile? = nil
     @Published var restaurantProfile: RestaurantProfile? = nil
     @Published var userDataExists: Bool?
+    
+    // Default user image for demo purposes
     @State var profileImage = UIImage(named: "yosAvatar")
 
+    // Firebase References
     var db = Firestore.firestore()
     var ref: DocumentReference? = nil
     var usersRef: CollectionReference? = nil
     var userDocRef: DocumentReference? = nil
-    
-    
     let storage = Storage.storage()
     let storageRef = Storage.storage().reference()
     
     
-    //MARK: Functions
+    // Starts Firebase authentication session and figures out whether the user is logged in on the device. If the user is logged, in this method retreives their profile information and adds it to local storage. If not, it updates the state variables that indicate control the login view controller, thereby prompting the user to login.
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
@@ -85,10 +93,12 @@ class FirebaseSession: ObservableObject {
         }
     }
     
+    // Function that logs the user in based on their inputs for email and password
     func logIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
     
+    // Function that logs the user out and updates necessary instance variables
     func logOut() {
         try! Auth.auth().signOut()
         self.isLoggedIn = false
@@ -98,6 +108,7 @@ class FirebaseSession: ObservableObject {
         self.userDataExists = nil
     }
     
+    // Function that signs up a new user
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }

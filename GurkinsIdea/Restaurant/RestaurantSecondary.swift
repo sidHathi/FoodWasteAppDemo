@@ -9,22 +9,35 @@
 import SwiftUI
 import Firebase
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class contains builds and populates the view used by the Restaurant to manage and add food for pickup
+*/
 struct RestaurantSecondary: View {
+    
+    // This variable contains a reference to the overarching UserData object for the entire app.
     @EnvironmentObject var userData: UserData
+    
+    // State switch that controls whether view is in edit mode
     @State var editingFood = false
-    
+    // State variable that stores information regarding new food objects
     @State var newFood = Food(name: "", quantity: 0)
-    
+    // State variable used in the textinput where the user names new food
     @State var newFoodName = ""
+    // State variable used for the counter used by the user to add food
     @State var newFoodQuantity = 0
-    
+    // State variable that controls whether the profile view is visible
     @State var showingProfile = false
+    // State variable that determines whether the view should quit and log out
     @State var shouldLogOut = false
-    
+    // State array that contains all the food currently offered by the restaurant
     @State var food: [Food] = []
     
+    // Database reference
     let db = Firestore.firestore()
     
+    // SwiftUI stylized profile button
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -33,6 +46,7 @@ struct RestaurantSecondary: View {
         }
     }
     
+    // Function that checks if a certain food object is within its expiration date
     func isFoodAvailable(food: Food) -> Bool
     {
         if (food.end.minutes(from: Date()) < 0)
@@ -45,6 +59,7 @@ struct RestaurantSecondary: View {
         }
     }
     
+    // Function that handles food objects created from new Firebase queries. Each query pulls down every food object in the restaurant's current menu. This function adds the ones that aren't duplicates (new ones) to the local food array, and removes the expired ones.
     func manageFood(food: Food)
     {
         if (isFoodAvailable(food: food)){
@@ -73,6 +88,7 @@ struct RestaurantSecondary: View {
         }
     }
     
+    // Function that queries Firebase for Restaurant's menu and adds it to local State arrays used to display the menu back to the Restaurant.
     func getAvailableFood()
     {
         let dbRef = db.collection("food")
@@ -98,6 +114,8 @@ struct RestaurantSecondary: View {
             self.userData.session!.restaurantProfile!.availableFood = food
         }
     }
+     
+    // Deprecated function for getting available food.
     /*
     var availableFood: [Food]
     {
@@ -149,6 +167,7 @@ struct RestaurantSecondary: View {
         return []
     }*/
     
+    // Function that removes the specified food object from the local array of food objects.
     func removeFood(food: Food)
     {
         if (food.webID != nil){
@@ -173,6 +192,7 @@ struct RestaurantSecondary: View {
         }
     }
     
+    // Function that adds the new food object posted by the restaurant to the Restaurant's menu stored on Firebase.
     func addFood()
     {
         
@@ -211,6 +231,7 @@ struct RestaurantSecondary: View {
         self.newFood = Food(name: "", quantity: 0)
     }
     
+    // SwiftUI View Constructor
     var body: some View {
         NavigationView{
             ScrollView{

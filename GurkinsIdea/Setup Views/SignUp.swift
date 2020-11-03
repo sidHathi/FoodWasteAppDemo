@@ -8,17 +8,26 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI class within which new user signs up
+*/
 struct SignUp: View {
     
+    // MARK: Properties
     @State private var email: String = ""
     @State private var password: String = ""
     
+    // State switch that controls whether error message should be displayed to user
     @State var error = false
     
+    // Overaching firebase session for app
     @EnvironmentObject var session: FirebaseSession
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
+    // SwiftUI view constructor
     var body: some View {
         Group {
             VStack {

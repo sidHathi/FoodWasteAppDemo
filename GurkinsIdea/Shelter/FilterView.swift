@@ -8,15 +8,22 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class constructs the menu used within the CompleteList view to choose the sorting method for restaurants
+*/
 struct FilterView: View {
+    
+    // State variable that toggles when the view is tapped and controls whether it appears expanded or compact
     @State var tapped = false
     
+    // References to State variables in CompleteList
     @Binding var none: Bool
-    
     @Binding var favorites: Bool
-    
     @Binding var proximity: Bool
     
+    // SwiftUI view constructor
     var body: some View {
         VStack (alignment: .leading)
         {

@@ -8,15 +8,26 @@
 
 import SwiftUI
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: This class creates the UI card used within Restaurant Secondary view to display food currently on Restaurant's menu
+*/
 struct FoodItem: View {
     
+    // Reference to RestaurantSecondary variable eddittingFood
     @Binding var editting: Bool
+    // Reference to parent: RestaurantSecondary
     var parent: RestaurantSecondary
     
+    // Food object being displayed
     var food: Food
+    // Obsolete variable used in older version of app
     var hasUsers: Bool
+    // Obsolete variable used in older version of app
     var users: [Profile]?
     
+    // Date foramtter
     var formatter: DateFormatter
     {
         let formatter = DateFormatter()
@@ -24,6 +35,7 @@ struct FoodItem: View {
         return formatter
     }
     
+    // SwiftUI view constructor
     var body: some View {
         ZStack{
             VStack{
@@ -166,7 +178,12 @@ struct FoodItem: View {
     }
 }
 
-
+/**
+Description:
+ OBSOLETE
+Type: SwiftUI View Class
+Functionality: This class creates a neumorphic profile image with number overlay. Not used.
+*/
 struct NumberImage: View
 {
     var image: Image

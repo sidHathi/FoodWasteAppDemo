@@ -10,8 +10,18 @@ import Foundation
 import CoreLocation
 import Firebase
 
+/**
+Description:
+Type: DataClass
+Functionality: This class is used in both instances of the app: by both Restaurants
+and non-restaurants. It provides a central location structure within which all information
+regarding a singular pickup can be stored. This information includes the time, place,
+and people involved in the pickup as well as the food scheduled to change hands. It is
+mirrored exactly within Firebase and instances are populated mainly from Firebase.
+*/
 class Pickup
 {
+    // Instance Vars
     var id = UUID()
     var restaurant: Restaurant?
     var profile: Profile?
@@ -31,6 +41,8 @@ class Pickup
     var canceled = false
     var cancelationMessage: String?
     
+    // Main Constructur: takes JSON data from firebase converted into
+    // String map and populates new instance of the Pickup object
     init(data: [String: Any], id: String)
     {
         self.webID = id
@@ -93,6 +105,7 @@ class Pickup
         }
     }
     
+    // Constructor used to create a new pickup when a non-restaurant user reserves food
     init(restaurant: Restaurant, time: Date, complete: Bool, food: [Food], profile: Profile, locati: CLLocationCoordinate2D)
     {
         self.restaurant = restaurant
@@ -123,6 +136,7 @@ class Pickup
         
     }
     
+    // Constructor used mainly for demo purposes.
     init(restaurant: Restaurant, time: Date, complete: Bool, food: [Food], profile: Profile)
     {
         self.restaurantName = restaurant.name
@@ -153,6 +167,7 @@ class Pickup
         }
     }
     
+    // Another constructor used mainly for demo purposes
     init(profile: Profile)
     {
         self.restaurantName = Restaurant().name
@@ -183,6 +198,7 @@ class Pickup
         
     }
     
+    // Default constructor
     init(complete: Bool)
     {
         self.restaurantName = Restaurant().name
@@ -213,6 +229,10 @@ class Pickup
         
     }
     
+    // Function used by non-restaurant user's who need to display
+    // information regarding restaurant involved in a pickup. Uses
+    // Restaurant webIDs stored in Pickup through Firebase to query
+    // Firebase information regarding specific restaurants.
     func getRestaurant()
     {
         let db = Firestore.firestore()

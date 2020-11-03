@@ -8,7 +8,13 @@
 
 import SwiftUI
 
+/**
+Description: [DEPRECATED]
+Type: SwiftUI View Class
+Functionality: This class belongs to an earlier verson of the app and has been replaced by MainBrowseView
+*/
 struct FeaturedList: View {
+    
     
     var listName: String
     var restaurants: [Restaurant]

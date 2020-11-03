@@ -9,18 +9,26 @@
 import SwiftUI
 import UIKit
 
+/**
+Description:
+Type: SwiftUI View Class
+Functionality: SwiftUI view within which user's log in
+*/
 struct LoginView: View {
     
     //MARK: Properties
     @State var email: String = ""
     @State var password: String = ""
     
+    // State switch that controls whether error message should be shown
     @State var error = false
     
+    // Overarching firebase session for app
     @EnvironmentObject var session: FirebaseSession
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
+    // SwiftUI view constructor
     var body: some View {
         NavigationView{
             VStack(spacing: 20) {
